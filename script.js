@@ -1,4 +1,3 @@
-
 "use strict";
 
 /* ================= MOBILE MENU ================= */
@@ -17,21 +16,24 @@ if (menuButton && navLinks) {
         );
     });
 
+    // Close the mobile menu when a navigation link is clicked.
     navLinks.querySelectorAll("a").forEach(function (link) {
         link.addEventListener("click", function () {
             navLinks.classList.remove("active");
+
             menuButton.setAttribute("aria-expanded", "false");
             menuButton.setAttribute("aria-label", "Open navigation");
         });
     });
 
-    // Close the menu if the user clicks outside it.
+    // Close the menu when the user clicks outside it.
     document.addEventListener("click", function (event) {
         if (
             !navLinks.contains(event.target) &&
             !menuButton.contains(event.target)
         ) {
             navLinks.classList.remove("active");
+
             menuButton.setAttribute("aria-expanded", "false");
             menuButton.setAttribute("aria-label", "Open navigation");
         }
@@ -44,6 +46,16 @@ if (menuButton && navLinks) {
 const themeButton = document.getElementById("theme-btn");
 
 if (themeButton) {
+    // Set the correct icon when the page loads.
+    const startsDark = document.body.classList.contains("dark-theme");
+
+    themeButton.textContent = startsDark ? "☀️" : "🌙";
+
+    themeButton.setAttribute(
+        "aria-label",
+        startsDark ? "Switch to light theme" : "Switch to dark theme"
+    );
+
     themeButton.addEventListener("click", function () {
         const isDark = document.body.classList.toggle("dark-theme");
 
@@ -69,29 +81,37 @@ const projects = {
     agro: {
         title: "AgroIntelligence",
         description:
-            "An agriculture-focused project for crop and fertilizer recommendations using soil and environmental information. Update this description to reflect the features implemented in your actual project.",
+            "An agriculture-focused project designed to support crop and fertilizer recommendations using soil and environmental information. Its proposed features include manual soil inputs and location-based recommendations.",
         github: "https://github.com/vamsivuggam85"
     },
 
     contact: {
         title: "Contact Management System",
         description:
-            "A contact management CRUD application designed to create, retrieve, update and delete contact records using Java, Spring Boot and PostgreSQL.",
+            "A Java backend CRUD application for managing contact information. It uses Spring Boot and PostgreSQL to practise creating, retrieving, updating and deleting records.",
         github: "https://github.com/vamsivuggam85"
     },
 
     cab: {
         title: "Cab Booking Mini-System",
         description:
-            "A Java application concept for managing customers, drivers, cabs, bookings and fares using Hibernate and PostgreSQL.",
+            "A Java application for practising cab booking workflows, including customers, drivers, cabs, bookings and fare details, with Hibernate and PostgreSQL.",
         github: "https://github.com/vamsivuggam85"
     }
 };
 
+
+// Display the selected project's details.
 function showProject(projectKey) {
     const project = projects[projectKey];
 
-    if (!project || !modal) {
+    if (
+        !project ||
+        !modal ||
+        !modalTitle ||
+        !modalDescription ||
+        !modalGithub
+    ) {
         return;
     }
 
@@ -107,6 +127,8 @@ function showProject(projectKey) {
     }
 }
 
+
+// Add click events to all project buttons.
 document.querySelectorAll(".project-btn").forEach(function (button) {
     button.addEventListener("click", function () {
         showProject(button.dataset.project);
@@ -125,10 +147,14 @@ function closeProject() {
     modal.setAttribute("aria-hidden", "true");
 }
 
+
+// Close the popup using the close button.
 if (modalClose) {
     modalClose.addEventListener("click", closeProject);
 }
 
+
+// Close the popup when clicking outside its content.
 if (modal) {
     modal.addEventListener("click", function (event) {
         if (event.target === modal) {
@@ -137,7 +163,8 @@ if (modal) {
     });
 }
 
-// Close the popup using the Escape key.
+
+// Close the popup by pressing Escape.
 document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
         closeProject();
@@ -147,25 +174,26 @@ document.addEventListener("keydown", function (event) {
 
 /* ================= CONTACT FORM ================= */
 
+// IMPORTANT:
+// Do not use event.preventDefault() here.
+// The browser must submit the form to FormSubmit using the action
+// attribute defined in index.html.
+
 const contactForm = document.getElementById("contactForm");
-const formStatus = document.getElementById("form-status");
 
 if (contactForm) {
-    contactForm.addEventListener("submit", function (event) {
-        event.preventDefault();
+    contactForm.addEventListener("submit", function () {
+        const submitButton = contactForm.querySelector(
+            'button[type="submit"]'
+        );
 
-        const name = document.getElementById("name").value.trim();
-
-        if (!name) {
-            formStatus.textContent = "Please enter your name.";
-            return;
+        if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.textContent = "Sending...";
         }
 
-        formStatus.textContent =
-            "Thank you, " + name +
-            "! This demo form does not send messages yet.";
-
-        contactForm.reset();
+        // Let the browser submit the form normally.
+        // Do not reset the form or prevent submission here.
     });
 }
 
