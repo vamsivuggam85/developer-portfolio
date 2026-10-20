@@ -5,13 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description" content="Krishna Vamsi's portfolio featuring Java, Spring Boot, SQL, PostgreSQL, Hibernate and web development projects.">
-
     <meta name="author" content="Krishna Vamsi">
     <meta name="theme-color" content="#193f68">
 
-    <title>Krishna Vamsi | Java & Full-Stack Developer</title>
+    <title>Krishna Vamsi | Java &amp; Full-Stack Developer</title>
 
-    <!-- Keep the existing filenames -->
     <link rel="stylesheet" href="Style.css">
     <script src="script.js" defer></script>
 </head>
@@ -57,15 +55,13 @@
 
     <main>
 
-        <!-- HOME / HERO -->
+        <!-- HOME -->
         <section id="home" class="hero section">
             <div class="container hero-content">
 
                 <p class="eyebrow">WELCOME TO MY PORTFOLIO</p>
 
-                <h1>
-                    Hi, I'm <span>Krishna Vamsi</span>
-                </h1>
+                <h1>Hi, I'm <span>Krishna Vamsi</span></h1>
 
                 <h2>Java &amp; Full-Stack Developer</h2>
 
@@ -78,7 +74,6 @@
                 </p>
 
                 <div class="hero-buttons">
-
                     <a href="#projects" class="btn btn-primary">
                         Explore My Projects
                     </a>
@@ -93,11 +88,9 @@
                         download>
                         Download Resume ↓
                     </a>
-
                 </div>
 
                 <div class="social-links">
-
                     <a
                         href="https://github.com/vamsivuggam85"
                         target="_blank"
@@ -105,14 +98,13 @@
                         GitHub ↗
                     </a>
 
-                    <!-- Replace this URL with your personal LinkedIn profile -->
+                    <!-- Replace with your personal LinkedIn profile -->
                     <a
                         href="https://www.linkedin.com/"
                         target="_blank"
                         rel="noopener noreferrer">
                         LinkedIn ↗
                     </a>
-
                 </div>
 
             </div>
@@ -126,7 +118,6 @@
                 <h2 class="section-title">About Me</h2>
 
                 <div class="about-card">
-
                     <p>
                         I am a Java and Full-Stack Development learner
                         interested in backend development, database
@@ -153,8 +144,8 @@
                         experienced professionals and contribute to
                         real-world software projects.
                     </p>
-
                 </div>
+
             </div>
         </section>
 
@@ -236,7 +227,6 @@
 
                     <!-- PROJECT 1 -->
                     <article class="project-card">
-
                         <div class="project-number">PROJECT 01</div>
 
                         <h3>AgroIntelligence</h3>
@@ -261,12 +251,10 @@
                             data-project="agro">
                             View Details ↗
                         </button>
-
                     </article>
 
                     <!-- PROJECT 2 -->
                     <article class="project-card">
-
                         <div class="project-number">PROJECT 02</div>
 
                         <h3>Contact Management System</h3>
@@ -291,12 +279,10 @@
                             data-project="contact">
                             View Details ↗
                         </button>
-
                     </article>
 
                     <!-- PROJECT 3 -->
                     <article class="project-card">
-
                         <div class="project-number">PROJECT 03</div>
 
                         <h3>Cab Booking Mini-System</h3>
@@ -320,7 +306,6 @@
                             data-project="cab">
                             View Details ↗
                         </button>
-
                     </article>
 
                 </div>
@@ -405,7 +390,6 @@
 
                 <!-- RESUME -->
                 <div class="resume-section">
-
                     <h3>My Resume</h3>
 
                     <p>
@@ -427,11 +411,101 @@
                         download>
                         Download Resume ↓
                     </a>
-
                 </div>
+
             </div>
         </section>
 
         <!-- CONTACT -->
         <section id="contact" class="section">
-            <div class="container
+            <div class="container">
+
+                <p class="eyebrow">LET'S CONNECT</p>
+                <h2 class="section-title">Contact Me</h2>
+
+                <p class="contact-description">
+                    Have an opportunity or want to discuss a project?
+                    Send me a message.
+                </p>
+
+                <form
+                    id="contactForm"
+                    class="contact-form"
+                    action="https://formsubmit.app/f/aazvpf4p8h"
+                    method="POST">
+
+                    <label for="name">Your Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your name"
+                        autocomplete="name"
+                        required>
+
+                    <label for="email">Your Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        autocomplete="email"
+                        required>
+
+                    <label for="message">Your Message</label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="5"
+                        placeholder="Write your message"
+                        required></textarea>
+
+                    <input
+                        type="hidden"
+                        name="_subject"
+                        value="New message from my portfolio">
+
+                    <button type="submit" class="btn btn-primary">
+                        Send Message
+                    </button>
+                </form>
+
+                <p
+                    id="form-status"
+                    class="form-status"
+                    aria-live="polite">
+                </p>
+
+                <div class="social-links contact-social-links">
+                    <a
+                        href="https://github.com/vamsivuggam85"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        GitHub ↗
+                    </a>
+
+                    <a
+                        href="https://www.linkedin.com/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        LinkedIn ↗
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>
+                &copy; <span id="current-year"></span> Krishna Vamsi.
+                Built with HTML, CSS and JavaScript.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
